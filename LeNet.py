@@ -8,23 +8,24 @@ class LeNet5(nn.Module):
         self.layer1 = nn.Sequential(
             nn.Conv2d(1, 6, kernel_size=5, stride=1, padding=2),
             nn.MaxPool2d(kernel_size=2, stride=2),
-            nn.ReLU()
+            # nn.ReLU()
         )
         self.layer2 = nn.Sequential(
             nn.Conv2d(6, 16, kernel_size=5, stride=1, padding=0),
             nn.MaxPool2d(kernel_size=2, stride=2),
-            nn.ReLU()
+            # nn.ReLU()
         )
         self.layer3 = nn.Sequential(
             nn.Conv2d(16, 120, kernel_size=5, stride=1, padding=0),
-            nn.ReLU(),
+            # nn.ReLU(),
             nn.Flatten()
         )
         self.fc = nn.Sequential(
+            # nn.BatchNorm2d(),
             nn.Linear(120, 84),
             nn.ReLU(),
             nn.Linear(84, 10),
-            nn.Softmax(1)
+            # nn.Softmax(1)
         )
 
     def forward(self, x):
