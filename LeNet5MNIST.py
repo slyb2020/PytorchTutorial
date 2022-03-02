@@ -5,16 +5,10 @@ from torchvision import transforms
 from torchvision.datasets import MNIST
 from LeNet import LeNet5
 import time
+from MNIST_Dataset import *
+
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-trainDataset = MNIST(root="D:\\WorkSpace\\DataSet", train=True, transform=torchvision.transforms.ToTensor())
-testDataset = MNIST(root="D:\\WorkSpace\\DataSet", train=False, transform=torchvision.transforms.ToTensor())
-batchSize = 100
-trainSize = trainDataset.__len__()
-testSize = testDataset.__len__()
-trainLoader = torch.utils.data.DataLoader(trainDataset, batch_size = batchSize, shuffle=True)
-testLoader = torch.utils.data.DataLoader(testDataset, batch_size = batchSize, shuffle=False)
-
 
 leNet5 = LeNet5()
 leNet5.to(device)
