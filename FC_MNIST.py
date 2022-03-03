@@ -15,7 +15,7 @@ if __name__ == "__main__":
         Print("Using CPU")
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-    fcNetMNIST = FC_Net(hidden=[256, 128, 64])
+    fcNetMNIST = FC_Net(hidden=[512, 512, 512])
     optimizer = torch.optim.SGD(fcNetMNIST.parameters(), lr=1e-3, momentum=0.9)
     Loss = nn.CrossEntropyLoss()
     maxEpoch = 60

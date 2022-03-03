@@ -15,7 +15,7 @@ leNet5.to(device)
 optimizer = torch.optim.SGD(leNet5.parameters(), lr=1e-3, momentum=0.9)
 Loss = torch.nn.CrossEntropyLoss()
 Loss.to(device)
-maxEpoch = 20
+maxEpoch = 100
 for epoch in range(maxEpoch):
     leNet5.train()
     lossEpoch = 0
