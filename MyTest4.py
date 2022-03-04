@@ -6,3 +6,6 @@ import torchvision
 # torchvision.datasets.EMNIST("E:\\WorkSpace\\Dataset\\", split='mnist', download=True)
 model = torchvision.models.resnet18(pretrained=True)
 print(model)
+# torchvision.datasets.EMNIST("E:\\WorkSpace\\Dataset\\", split='mnist', download=True)
+model = torchvision.models.alexnet(pretrained=True)
+print(model)
