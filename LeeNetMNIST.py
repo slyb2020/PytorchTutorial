@@ -18,7 +18,7 @@ model.to(device)
 optimizer = torch.optim.SGD(model.parameters(), lr=1e-3, momentum=0.9)
 Loss = torch.nn.CrossEntropyLoss()
 Loss.to(device)
-maxEpoch = 100
+maxEpoch = 200
 for epoch in range(maxEpoch):
     model.train()
     lossEpoch = 0
