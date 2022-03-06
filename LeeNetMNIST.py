@@ -4,10 +4,10 @@ from torch import nn
 from torchvision import transforms
 from torchvision.datasets import MNIST
 from LeNet import LeNet5
-from LeeNet2 import LeeNet
+from LeeNet import LeeNet
 import time
 from MNIST_Dataset import *
-
+from torch.utils import tensorboard
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
@@ -19,7 +19,7 @@ optimizer = torch.optim.SGD(model.parameters(), lr=1e-3, momentum=0.9)
 Loss = torch.nn.CrossEntropyLoss()
 Loss.to(device)
 maxEpoch = 200
-maxAccuracy = 0
+maxAccuracy = 99.3
 for epoch in range(maxEpoch):
     model.train()
     lossEpoch = 0
@@ -55,7 +55,7 @@ for epoch in range(maxEpoch):
             100*accuracyTotalTrain/trainSize, 100*accuracyTotalTest/testSize, endTime-startTime, testTime - endTime))
     if maxAccuracy<(100*accuracyTotalTest/testSize):
         maxAccuracy=100*accuracyTotalTest/testSize
-        torch.save(model, "model/LeeNetMNISTDropout128_%s.pth"%(int(maxAccuracy*100)))
+        torch.save(model, "model/LeeNetMNISTDropout168_%s.pth"%(int(maxAccuracy*100)))
 
 
 

@@ -29,11 +29,11 @@ class LeeNet(nn.Module):
             nn.Flatten()
         )
         self.fc = nn.Sequential(
-            nn.Linear(120, 128),
-            nn.BatchNorm1d(128),
-            nn.Dropout(p=0.3),
+            nn.Linear(120, 170),
+            nn.BatchNorm1d(170),
+            nn.Dropout(p=0.5),
             nn.ReLU(),
-            nn.Linear(128, 10),
+            nn.Linear(170, 10),
             nn.BatchNorm1d(10),
             # nn.Softmax(1)
         )
