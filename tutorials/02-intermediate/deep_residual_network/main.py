@@ -27,12 +27,12 @@ transform = transforms.Compose([
     transforms.ToTensor()])
 
 # CIFAR-10 dataset
-train_dataset = torchvision.datasets.CIFAR10(root='../../data/',
+train_dataset = torchvision.datasets.CIFAR10(root='D:\\WorkSpace\\DataSet\\CIFAR10',
                                              train=True, 
                                              transform=transform,
                                              download=True)
 
-test_dataset = torchvision.datasets.CIFAR10(root='../../data/',
+test_dataset = torchvision.datasets.CIFAR10(root='D:\\WorkSpace\\DataSet\\CIFAR10',
                                             train=False, 
                                             transform=transforms.ToTensor())
 
@@ -115,7 +115,7 @@ class ResNet(nn.Module):
     
 model = ResNet(ResidualBlock, [2, 2, 2]).to(device)
 
-
+print(model)
 # Loss and optimizer
 criterion = nn.CrossEntropyLoss()
 optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
